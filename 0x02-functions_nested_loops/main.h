@@ -28,4 +28,11 @@ int _islower(int c);
  * Return: 1 or 0
 */
 int _isalpha(int c);
+/**
+ * print_sign - prints + if n is greater than zero
+ * prints 0 if n is zero
+ * prints - if n is less than zero
+ * Return: 1 or 0 or -1
+*/
+int print_sign(int n);
 #endif
