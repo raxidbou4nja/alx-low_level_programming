@@ -32,6 +32,7 @@ int _isalpha(int c);
  * print_sign - prints + if n is greater than zero
  * prints 0 if n is zero
  * prints - if n is less than zero
+ * @n: parameter to convert
  * Return: 1 or 0 or -1
 */
 int print_sign(int n);
@@ -41,4 +42,10 @@ int print_sign(int n);
  * Return: integer or abs value of int
  */
 int _abs(int);
+/**
+ * print_last_digit - prints the last digit of a number
+ * @int: integer
+ * Return: 0 or 1
+*/
+int print_last_digit(int);
 #endif
