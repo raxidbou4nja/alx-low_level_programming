@@ -17,9 +17,15 @@ void print_alphabet(void);
  */
 void print_alphabet_x10(void);
 /**
- * _islower - writes letters in lowercase
+ * _islower - check letters in lowercase
  * @c: parameter to compare
  * Return: 1 or 0
 */
 int _islower(int c);
+/**
+ * _isalpha - check letters
+ * @c: parameter to compare
+ * Return: 1 or 0
+*/
+int _isalpha(int c);
 #endif
