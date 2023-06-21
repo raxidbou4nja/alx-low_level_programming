@@ -49,21 +49,27 @@ int _abs(int);
 */
 int print_last_digit(int);
 /**
- * jack_bauer - jack bauer gooo
+ * jack_bauer - jack bauer
  *
  */
 void jack_bauer(void);
 /**
- * times_table - times this up
+ * times_table - print times table from 0 to 9
  *
  *
  */
 void times_table(void);
 /**
- * add - adds stuff up
+ * add - print result of two numbers
  *
- * @int: integers to add
- * Return: returns a sum
+ * @int: integers
+ * Return: returns sum of two numbers
  */
 int add(int, int);
+/**
+ * print_to_98 - prints form given number to 98
+ * @n: integer
+ *
+ */
+void print_to_98(int n);
 #endif
