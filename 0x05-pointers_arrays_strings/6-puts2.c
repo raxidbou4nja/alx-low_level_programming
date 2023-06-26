@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * puts2 - Prints chars one yes one no 
+ * puts2 - Prints chars one yes one no
  * @str: string param
  */
 void puts2(char *str)
