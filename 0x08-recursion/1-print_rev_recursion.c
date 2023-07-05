@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _puts_recursion - prints a revered string using putchar
+ * _print_rev_recursion - prints a revered string using putchar
  * @s: pointer of given string.
  * return: void.
 */
