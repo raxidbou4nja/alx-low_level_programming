@@ -13,11 +13,12 @@
 int main(int argc, char *argv[])
 {
 	int num1;
-        int num2;
+	int num2;
 
-	if (argc < 3) {
+	if (argc < 3)
+	{
 		printf("Error");
-		return 1;
+		return (1);
 	}
 
 	num1 = strtol(argv[1], NULL, 10);
@@ -25,5 +26,5 @@ int main(int argc, char *argv[])
 
 	printf("%d\n", num1 * num2);
 
-	return 0;
+	return (0);
 }
