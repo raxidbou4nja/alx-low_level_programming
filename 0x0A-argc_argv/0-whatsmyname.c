@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -8,19 +9,9 @@
  * Return: name of file
  */
 
-int main(int argc, char *argv[])
+int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	int i;
-
-	for (i = 0; i < argc; i++)
-	{
-		int j;
-
-		for (j = 0; argv[i][j] != '\0'; j++)
-		{
-			_putchar(argv[i][j]);
-		}
-	}
+	printf("%s\n", argv[0]);
 
 	return (0);
 }
