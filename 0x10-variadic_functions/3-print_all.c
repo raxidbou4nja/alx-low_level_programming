@@ -43,9 +43,7 @@ void print_all(const char * const format, ...)
 		arg_count++;
 		if (format[arg_count] != '\0')
 		{
-			if (format[arg_count] == 'c' || format[arg_count] == 'i' ||
-				format[arg_count] == 'f' || format[arg_count] == 's')
-				printf(", ");
+	
 		}
 	}
 	va_end(args);
