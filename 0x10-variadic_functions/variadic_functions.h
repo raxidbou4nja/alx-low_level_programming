@@ -19,4 +19,15 @@ typedef struct op
 	char *c;
 	int (*f)(va_list a);
 } printer;
+
+typedef struct {
+    char type;
+    void (*printer)(va_list);
+} types_t;
+
+void print_all(const char * const format, ...);
+void print_int(va_list args);
+void print_char(va_list args);
+void print_string(va_list args);
+void print_float(va_list args);
 #endif
