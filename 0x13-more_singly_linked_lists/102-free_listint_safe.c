@@ -12,30 +12,40 @@
  * This function frees the memory occupied by
  * a linked list of integers, even if the list has a loop.
  */
-
 size_t free_listint_safe(listint_t **h)
 {
-	size_t size = 0;
-	long loop_detected;
-	listint_t *head, *temp;
+	size_t Rindex, hIndex;
 
-	if (!h)
+	listint_t  *working, *head, *current;
+
+	if (h == NULL || *h == NULL)
 	{
 		return (0);
 	}
+
+	hIndex = 0;
+	current = *h;
 	head = *h;
-	*h = NULL;
-	while (head)
+
+	while (head != NULL)
 	{
-		size++;
-		loop_detected = head->next - head;
-		temp = head;
-		free(temp);
-		if (loop_detected >= 0)
+		working = *h;
+		for (Rindex = 0; Rindex < hIndex; Rindex++)
 		{
-			break;
+			if (working == current)
+			{
+				*h = NULL;
+				return (hIndex);
+			}
+			working = working->next;
 		}
-		head = head->next;
+		current = head->next;
+		free(head);
+		head = current;
+		hIndex++;
 	}
-	return (size);
+
+	*h = NULL;
+
+	return (hIndex);
 }
