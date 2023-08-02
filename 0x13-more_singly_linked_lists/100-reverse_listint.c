@@ -1,40 +1,26 @@
 #include <stdio.h>
 #include "lists.h"
-
 /**
- * find_listint_loop - Finds the beginning node of a loop in a linked list.
+ * reverse_listint - Reverses a linked list of integers in place.
  *
- * @head: Pointer to the head of the linked list.
+ * @head: Pointer to a pointer to the head of the linked list.
  *
- * Return: Pointer to the beginning node of the loop if a loop is found.
- * If there is no loop, returns NULL.
+ * Return: Pointer to the new head of the reversed linked list.
  */
-listint_t *find_listint_loop(listint_t *head)
+listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *slow, *fast;
+	listint_t *prev = NULL;
+	listint_t *current = *head;
+	listint_t *next = NULL;
 
-	if (head == NULL || head->next == NULL)
-		return (NULL);
-
-	slow = head;
-	fast = head;
-
-	while (fast != NULL && fast->next != NULL)
+	while (current != NULL)
 	{
-		slow = slow->next;
-		fast = fast->next->next;
-
-		if (slow == fast)
-		{
-			slow = head;
-			while (slow != fast)
-			{
-				slow = slow->next;
-				fast = fast->next;
-			}
-			return (slow);
-		}
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
 	}
 
-	return (NULL);
+	*head = prev;
+	return (*head);
 }
