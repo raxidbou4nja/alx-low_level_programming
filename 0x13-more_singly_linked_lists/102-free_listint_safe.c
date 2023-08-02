@@ -15,37 +15,27 @@
 
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *current, *temp;
 	size_t size = 0;
-	int loop_detected = 0;
+	long loop_detected;
+	listint_t *head, *temp;
 
-	if (h == NULL || *h == NULL)
+	if (!h)
+	{
 		return (0);
-
-	current = *h;
-
-	while (current != NULL)
+	}
+	head = *h;
+	*h = NULL;
+	while (head)
 	{
 		size++;
-
-		if (current->n == -999999)
+		loop_detected = head->next - head;
+		temp = head;
+		free(temp);
+		if (loop_detected >= 0)
 		{
-			loop_detected = 1;
 			break;
 		}
-
-		current->n = -999999;
-
-		temp = current;
-		current = current->next;
-
-		free(temp);
+		head = head->next;
 	}
-
-	*h = NULL;
-
-	if (loop_detected)
-		return (size);
-
 	return (size);
 }
