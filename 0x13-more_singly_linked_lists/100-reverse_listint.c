@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "lists.h"
 /**
  * reverse_listint - Reverses a linked list of integers in place.
@@ -9,18 +8,24 @@
  */
 listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *rest, *reversed;
+	listint_t *rest, *rev;
 
-	if (*head == NULL || (*head)->next == NULL)
+	if (head == NULL || *head == NULL)
 	{
-		return (*head);
+		return (NULL);
 	}
 
-	rest = (*head)->next;
+	rev = NULL;
 
-	(*head)->next = NULL;
-	reversed = reverse_listint(&rest);
-	rest->next = *head;
+	while ((*head)->next != NULL)
+	{
+		rest = (*head)->next;
+		(*head)->next = rev;
+		rev = *head;
+		*head = rest;
+	}
 
-	return (reversed);
+	(*head)->next = rev;
+
+	return (*head);
 }
