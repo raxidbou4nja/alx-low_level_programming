@@ -16,18 +16,29 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	if (head == NULL)
-		return (0);
+	size_t cIndex, rIndex;
+	const listint_t *working, *current;
 
-	printf("[%p] %d\n", (void *)head, head->n);
+	current = head;
+	cIndex = 0;
 
-	if (head->next < head)
+	while (current != NULL)
 	{
-		return (1 + print_listint_safe(head->next));
+		working = head;
+		for (rIndex = 0; rIndex < cIndex; rIndex++)
+		{
+			if (working == current)
+			{
+				printf("-> [%p] %d\n", (void *)current, current->n);
+				return (cIndex);
+			}
+
+			working = working->next;
+		}
+		printf("[%p] %d\n", (void *)current, current->n);
+		current = current->next;
+		cIndex++;
 	}
-	else
-	{
-		printf("-> [%p] %d\n", (void *)head->next, head->next->n);
-		return (1);
-	}
+
+	return (cIndex);
 }
