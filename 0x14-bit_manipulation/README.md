@@ -50,5 +50,3 @@ The function `unsigned int flip_bits(unsigned long int n, unsigned long int m)` 
 - **Return:** The number of bits needed to flip to convert `n` to `m`.
 - **Constraints:** No usage of % or / operators.
 
-Please note that these functions are written in C and are intended to be used as utility functions for various binary operations. They are compatible with standard C environments and have been tested accordingly.
-
