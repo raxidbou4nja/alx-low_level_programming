@@ -10,33 +10,42 @@
  *
  * Return: The actual number of letters read and printed.
  */
+
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	ssize_t chars_read = 0;
 	char *buffer = NULL;
-	FILE *file;
-
-	if (filename == NULL || letters == 0)
+	int file_descriptor;
+	ssize_t chars_written;
+	
+	if (filename == NULL)
 		return (0);
 
-	file = fopen(filename, "r");
-	if (file == NULL)
+	file_descriptor = open(filename, O_RDONLY);
+	if (file_descriptor == -1)
 		return (0);
 
 	buffer = malloc(sizeof(char) * letters);
 	if (buffer == NULL)
 	{
-		fclose(file);
+		close(file_descriptor);
 		return (0);
 	}
 
-	chars_read = fread(buffer, sizeof(char), letters, file);
-	fclose(file);
+	chars_read = read(file_descriptor, buffer, letters);
+	close(file_descriptor);
 
-	if (chars_read > 0)
-		fwrite(buffer, sizeof(char), chars_read, stdout);
+	if (chars_read <= 0)
+	{
+		free(buffer);
+		return (0);
+	}
 
+	chars_written = write(STDOUT_FILENO, buffer, chars_read);
 	free(buffer);
+
+	if (chars_written != chars_read)
+		return (0);
 
 	return (chars_read);
 }
