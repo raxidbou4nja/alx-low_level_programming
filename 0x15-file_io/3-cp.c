@@ -8,8 +8,8 @@
 
 /**
  * main - program to copy
- * @ac: argument count
- * @av: array of arguments
+ * @argc: argument count
+ * @argv: array of arguments
  * Return: a value
  */
 
