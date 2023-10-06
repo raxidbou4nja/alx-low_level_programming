@@ -10,11 +10,11 @@
  */
 typedef struct hash_node_s
 {
-    char *key;
-    char *value;
-    struct hash_node_s *next;
-    struct hash_node_s *sprev;
-    struct hash_node_s *snext;
+	char *key;
+	char *value;
+	struct hash_node_s *next;
+	struct hash_node_s *sprev;
+	struct hash_node_s *snext;
 } hash_node_t, shash_node_t;
 
 /**
@@ -27,10 +27,10 @@ typedef struct hash_node_s
  */
 typedef struct hash_table_s
 {
-    unsigned long int size;
-    hash_node_t **array;
-    shash_node_t *shead;
-    shash_node_t *stail;
+	unsigned long int size;
+	hash_node_t **array;
+	shash_node_t *shead;
+	shash_node_t *stail;
 } hash_table_t, shash_table_t;
 
 
