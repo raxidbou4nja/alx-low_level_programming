@@ -7,6 +7,8 @@
  * @key: The key (string)
  * @value: The value associated with the key
  * @next: A pointer to the next node in the collision resolution chain
+ * @sprev: The value associated with the key
+ * @snext: The value associated with the key
  */
 typedef struct hash_node_s
 {
