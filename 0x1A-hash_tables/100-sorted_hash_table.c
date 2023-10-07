@@ -71,8 +71,6 @@ shash_node_t *make_node(const char *key, const char *value)
  */
 int assign_head(shash_node_t *new, shash_table_t *ht)
 {
-	shash_node_t *temp;
-
 	if (ht->shead == NULL)
 	{
 		ht->shead = new;
@@ -90,6 +88,7 @@ int assign_head(shash_node_t *new, shash_table_t *ht)
 
 	return (0);
 }
+
 
 /**
  * assign - Updates or assigns a new node other than the head when needed.
