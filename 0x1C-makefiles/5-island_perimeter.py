@@ -2,24 +2,21 @@
 """5-island_perimeter module"""
 
 
-class IslandPerimeterCalculator:
-    def __init__(self, grid):
-        self.grid = grid
+def island_perimeter(grid):
+    """Returns the perimeter of the island described in grid"""
+    perimeter = 0
+    rows = len(grid)
+    cols = len(grid[0])
 
-    def calculate_perimeter(self):
-        perimeter = 0
-        length = len(self.grid) - 1
-        width = len(self.grid[0]) - 1
+    for i in range(rows):
+        for j in range(cols):
+            if grid[i][j] == 1:
+                perimeter += 4
 
-        for i, row in enumerate(self.grid):
-            for j, cell in enumerate(row):
-                if cell == 1:
-                    if i == 0 or self.grid[i - 1][j] != 1:
-                        perimeter += 1
-                    if j == 0 or self.grid[i][j - 1] != 1:
-                        perimeter += 1
-                    if j == width or self.grid[i][j + 1] != 1:
-                        perimeter += 1
-                    if i == length or self.grid[i + 1][j] != 1:
-                        perimeter += 1
-        return perimeter
+                # Check and subtract for neighboring land
+                if i > 0 and grid[i - 1][j] == 1:
+                    perimeter -= 2
+                if j > 0 and grid[i][j - 1] == 1:
+                    perimeter -= 2
+
+    return perimeter
