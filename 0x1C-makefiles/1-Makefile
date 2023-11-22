@@ -1,0 +1,15 @@
+# Makefile for building 'school' executable
+
+# Compiler
+CC := gcc
+
+# Source files
+SRC := main.c school.c
+
+# Rule for building the executable 'school'
+all: $(SRC)
+	$(CC) -Wall $(SRC) -o school
+
+# Clean rule to remove the executable
+clean:
+	rm -f school
